@@ -14,12 +14,32 @@
                 <a class="nav-link" href="/index.html">Administración de Pacientes</a>
             </li>
         </ul>
-        <div>
-            <h3>Agregar Paciente</h3>
-            <form id="agregar_nuevo_paciente">
-            <div>
+    <div>
+        <h3>Agregar Paciente</h3>
+        <form id="agregar_nuevo_paciente">
+        <div class="inputs">
+            <label class="label-content" for="nombre">Nombre:</label>
+            <input type="text" class="form-content" id="nombre" placeholder="Ingrese el nombre" name="nombre">
+        </div>
+            <div class="inputs">
+                <label class="label-content" for="apellido">Apellido:</label>
+                <input type="text" class="form-content" id="apellido" placeholder="Ingrese su apellido" name="apellido">
+            </div>
+            <div class="inputs">
+                <label class="label-content" for="domicilio">Domicilio:</label>
+                <input type="text" class="form-content" id="domicilio" placeholder="Ingrese su domicilio" name="domicilio">
+            </div>
+            <div class="inputs">
+                <label class="label-content" for="dni">DNI:</label>
+                <input type="number" class="form-content" id="dni" placeholder="Ingrese su dni" name="dni">
+            </div>
+            <div class="inputs">
+                <label class="label-content" for="fechaAlta">Fecha de alta:</label>
+                <input type="text" class="form-content" id="fechaAlta" placeholder="Ingrese su fecha de alta" name="fechaAlta">
+            </div>
 
-                <div/>
+            <button type="submit" class="enviar" id="enviar-nuevo-paciente">Guardar</button>
+        </form>
     </div>
 
 </body>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a class="nav-link" href="/index.html">Administración de Pacientes</a>
+            </li>
+        </ul>
+    <div>
+    <div>
+        <h1>Pacientes</h1>
+        <div>
+            <table id="PacienteTable" class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Domicilio</th>
+                    <th>DNI</th>
+                    <th>FEcha de alta</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+        <form id="actualizar_nuevo_paciente">
+            <div class="inputs">
+                <label>Id:</label>
+                <input type="text" class="form-content" id="paciente_id">
+            </div>
+            <div class="inputs">
+                <label>Nombre:</label>
+                <input type="text" class="form-content" id="nombre" placeholder="nombre">
+            </div>
+            <div class="inputs">
+                <label>Apellido:</label>
+                <input type="text" class="form-content" id="apellido" placeholder="apellido">
+            </div>
+            <div class="inputs">
+                <label>Domicilio:</label>
+                <input type="text" class="form-content" id="domicilio" placeholder="domicilio">
+            </div>
+            <div class="inputs">
+                <label>DNI:</label>
+                <input type="number" class="form-content" id="dni" placeholder="dni">
+            </div>
+            <div class="inputs">
+                <label>Fecha de alta:</label>
+                <input type="text" class="form-content" id="fechaAlta" placeholder="fecha de alta">
+            </div>
+
+            <button type="submit" class="enviar" id="enviar-nuevo-paciente">Modificar</button>
+        </form>
+    </div>
+</body>
+</html>

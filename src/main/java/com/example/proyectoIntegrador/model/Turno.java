@@ -2,19 +2,22 @@ package com.example.proyectoIntegrador.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "Turnos")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Turno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private Long id;
 

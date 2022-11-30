@@ -23,6 +23,7 @@ public class OdontologoController {
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Odontologo>> getAll(){
+
         return ResponseEntity.ok().body(odontologoService.getAll());
     }
 

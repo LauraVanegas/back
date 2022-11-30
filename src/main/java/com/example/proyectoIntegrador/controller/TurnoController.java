@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Turnos")
+@RequestMapping("/turnos")
 @AllArgsConstructor
 public class TurnoController {
 
