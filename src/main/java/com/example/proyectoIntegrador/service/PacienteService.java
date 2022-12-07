@@ -1,7 +1,9 @@
 package com.example.proyectoIntegrador.service;
 
 
+import com.example.proyectoIntegrador.exceptions.ResourceNotFoundException;
 import com.example.proyectoIntegrador.model.Paciente;
+import com.example.proyectoIntegrador.model.Turno;
 import com.example.proyectoIntegrador.repository.PacienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,7 +33,12 @@ public class PacienteService {
         return pacienteRepository.save(paciente);
     }
 
-    public void delete(long id){
-        pacienteRepository.deleteById(id);
+    public void delete(long id) throws ResourceNotFoundException {
+        Optional<Paciente> traerPaciente = get(id);
+        if (traerPaciente.isPresent())
+            pacienteRepository.deleteById(id);
+        else {
+            throw new ResourceNotFoundException("No existe el paciente con el id: " +id+ "Ingrese un id valido");
+        }
     }
 }

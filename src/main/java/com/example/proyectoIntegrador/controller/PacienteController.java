@@ -1,6 +1,7 @@
 package com.example.proyectoIntegrador.controller;
 
 
+import com.example.proyectoIntegrador.exceptions.ResourceNotFoundException;
 import com.example.proyectoIntegrador.model.Paciente;
 import com.example.proyectoIntegrador.service.PacienteService;
 import lombok.AllArgsConstructor;
@@ -39,8 +40,8 @@ public class PacienteController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable long id){
+    public ResponseEntity<String> delete(@PathVariable long id) throws ResourceNotFoundException {
         pacienteService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("se elimino el paciente correctamente");
     }
 }

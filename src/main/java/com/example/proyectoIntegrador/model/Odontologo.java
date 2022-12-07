@@ -19,7 +19,7 @@ import java.util.Set;
 @Setter
 public final class Odontologo {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     private String nombre;

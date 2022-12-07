@@ -1,8 +1,15 @@
 package com.example.proyectoIntegrador.controller;
 
+import com.example.proyectoIntegrador.exceptions.BadRequestException;
+import com.example.proyectoIntegrador.exceptions.ResourceNotFoundException;
+import com.example.proyectoIntegrador.model.Odontologo;
+import com.example.proyectoIntegrador.model.Paciente;
 import com.example.proyectoIntegrador.model.Turno;
+import com.example.proyectoIntegrador.service.OdontologoService;
+import com.example.proyectoIntegrador.service.PacienteService;
 import com.example.proyectoIntegrador.service.TurnoService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +23,23 @@ public class TurnoController {
 
     private final TurnoService turnoService;
 
+    private final OdontologoService odontologoService;
+
+    private final PacienteService pacienteService;
+
     @PostMapping("/save")
-    public ResponseEntity<Turno> save(@RequestBody Turno turno){
-        return ResponseEntity.ok().body(turnoService.save(turno));
+    public ResponseEntity<Turno> save(@RequestBody Turno turno) throws BadRequestException {
+        ResponseEntity<Turno> respuesta;
+
+        Optional<Paciente> paciente = pacienteService.get(turno.getPaciente().getId());
+        Optional<Odontologo> odontologo = odontologoService.get(turno.getOdontologo().getId());
+        if (paciente.isPresent()&&odontologo.isPresent()){
+            respuesta = ResponseEntity.ok().body(turnoService.save(turno));
+        }
+        else {
+            respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return respuesta;
     }
 
     @GetMapping("/getAll")
@@ -37,8 +58,8 @@ public class TurnoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable long id){
+    public ResponseEntity<String> delete(@PathVariable long id) throws ResourceNotFoundException {
         turnoService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("se elimino el turno correctamente");
     }
 }

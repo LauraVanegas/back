@@ -1,6 +1,8 @@
 package com.example.proyectoIntegrador.service;
 
+import com.example.proyectoIntegrador.exceptions.ResourceNotFoundException;
 import com.example.proyectoIntegrador.model.Odontologo;
+import com.example.proyectoIntegrador.model.Paciente;
 import com.example.proyectoIntegrador.repository.OdontologoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,7 +31,12 @@ public class OdontologoService {
         return odontologoRepository.save(odontologo);
     }
 
-    public void delete(long id){
-        odontologoRepository.deleteById(id);
+    public void delete(long id) throws ResourceNotFoundException {
+        Optional<Odontologo> traerOdontologo = get(id);
+        if (traerOdontologo.isPresent())
+            odontologoRepository.deleteById(id);
+        else {
+            throw new ResourceNotFoundException("No existe el odontologo con el id: " +id+ "Ingrese un id valido");
+        }
     }
 }

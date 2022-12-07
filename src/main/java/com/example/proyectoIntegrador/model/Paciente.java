@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -17,14 +18,14 @@ import java.util.Set;
 @Setter
 public class Paciente {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     private String nombre;
     private String apellido;
     private String domicilio;
     private int DNI;
-    private String fechaALta;
+    private LocalDate fechaALta;
 
     @OneToMany(mappedBy = "paciente")
     @JsonIgnore
