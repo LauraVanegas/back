@@ -21,9 +21,9 @@ class OdontologoServiceTest {
         odontologo.setNombre("mery");
         odontologo.setApellido("gonzalez");
         odontologo.setMatricula(32156);
-       odontologoService.save(odontologo);
+        odontologoService.save(odontologo);
 
-       Optional<Odontologo> odontologoUno = odontologoService.get(1L);
+        Optional<Odontologo> odontologoUno = odontologoService.get(1L);
 
         assertTrue(odontologoUno != null);
     }

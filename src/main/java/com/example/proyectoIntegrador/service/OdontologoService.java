@@ -2,7 +2,6 @@ package com.example.proyectoIntegrador.service;
 
 import com.example.proyectoIntegrador.exceptions.ResourceNotFoundException;
 import com.example.proyectoIntegrador.model.Odontologo;
-import com.example.proyectoIntegrador.model.Paciente;
 import com.example.proyectoIntegrador.repository.OdontologoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
