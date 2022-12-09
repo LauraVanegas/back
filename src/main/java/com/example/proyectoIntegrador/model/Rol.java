@@ -1,5 +1,5 @@
 package com.example.proyectoIntegrador.model;
 
-public enum AppUsuarioRoles {
+public enum Rol {
     ROLE_USER
 }

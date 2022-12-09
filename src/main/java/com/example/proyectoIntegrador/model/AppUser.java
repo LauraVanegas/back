@@ -27,12 +27,12 @@ public class AppUser implements UserDetails {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private AppUsuarioRoles appUsuarioRoles;
+    private Rol Rol;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        var grantedAuthority  = new SimpleGrantedAuthority(appUsuarioRoles.name());
+        var grantedAuthority  = new SimpleGrantedAuthority(Rol.name());
         return Collections.singletonList(grantedAuthority);
     }
     @Override

@@ -1,6 +1,6 @@
 package com.example.proyectoIntegrador.service;
 
-import com.example.proyectoIntegrador.model.AppUser;
+
 import com.example.proyectoIntegrador.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
