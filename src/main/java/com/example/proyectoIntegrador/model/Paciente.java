@@ -24,7 +24,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private String domicilio;
-    private int DNI;
+    private String DNI;
     private LocalDate fechaALta;
 
     @OneToMany(mappedBy = "paciente")

@@ -12,8 +12,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -29,6 +28,13 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Rol Rol;
 
+    public AppUser(String nombre, String username, String email, String password, com.example.proyectoIntegrador.model.Rol rol) {
+        this.nombre = nombre;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        Rol = rol;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

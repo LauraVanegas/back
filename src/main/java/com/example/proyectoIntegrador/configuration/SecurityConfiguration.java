@@ -20,13 +20,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.
-                authorizeRequests()
-                .antMatchers("/user/**")
-                .permitAll()
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/pacientes/**").permitAll()
+                .antMatchers("/odontologos/**").permitAll()
+                .antMatchers("/turnos/**").permitAll()
                 .anyRequest()
-                .authenticated().and().
-                formLogin();
+                .authenticated()
+                .and().headers().frameOptions().disable()
+                .and().formLogin().permitAll()
+                .and().httpBasic()
+                .and().logout().permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403");
+        http.csrf().disable().headers().frameOptions().disable();
     }
 
     @Override
