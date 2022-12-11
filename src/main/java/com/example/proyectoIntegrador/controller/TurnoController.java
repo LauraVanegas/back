@@ -48,7 +48,7 @@ public class TurnoController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Optional<Turno>> get(@PathVariable long id){
+    public ResponseEntity<Optional<Turno>> get(@PathVariable int id){
         return ResponseEntity.ok().body(turnoService.get(id));
     }
 
@@ -58,7 +58,7 @@ public class TurnoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) throws ResourceNotFoundException {
+    public ResponseEntity<String> delete(@PathVariable int id) throws ResourceNotFoundException {
         turnoService.delete(id);
         return ResponseEntity.ok("se elimino el turno correctamente");
     }

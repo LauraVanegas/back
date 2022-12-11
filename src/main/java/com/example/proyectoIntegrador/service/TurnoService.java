@@ -20,16 +20,17 @@ public class TurnoService {
 
     private final TurnoRepository turnoRepository;
 
-    private final PacienteRepository pacienteRepository;
+    private final PacienteService pacienteService;
 
-    private final OdontologoRepository odontologoRepository;
+    private final OdontologoService odontologoService;
 
 
     public Turno save(Turno turno) throws BadRequestException {
-        Optional<Paciente> traerPaciente = pacienteRepository.findById(turno.getId());
-        Optional<Odontologo> traerOdontologo = odontologoRepository.findById(turno.getId());
-        if (traerPaciente.isPresent()&&traerOdontologo.isPresent())
-            turnoRepository.save(turno);
+        if (turno.getPaciente() != null && turno.getOdontologo() != null){
+            pacienteService.save(turno.getPaciente());
+            odontologoService.save(turno.getOdontologo());
+
+            turnoRepository.save(turno);}
         else {
             throw new BadRequestException("No fue posible registrar el turno");
         }
@@ -41,7 +42,7 @@ public class TurnoService {
         return turnoRepository.findAll();
     }
 
-    public Optional<Turno> get(long id){
+    public Optional<Turno> get(int id){
         return turnoRepository.findById(id);
     }
 
@@ -49,7 +50,7 @@ public class TurnoService {
         return turnoRepository.save(turno);
     }
 
-    public void delete(long id) throws ResourceNotFoundException {
+    public void delete(int id) throws ResourceNotFoundException {
         Optional<Turno> traerTurno = get(id);
         if (traerTurno.isPresent())
         turnoRepository.deleteById(id);

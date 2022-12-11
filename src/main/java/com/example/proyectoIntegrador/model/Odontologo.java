@@ -19,9 +19,8 @@ import java.util.Set;
 @Setter
 public final class Odontologo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
     private String nombre;
     private String apellido;
     private int matricula;

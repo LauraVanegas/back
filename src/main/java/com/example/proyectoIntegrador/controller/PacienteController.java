@@ -30,7 +30,7 @@ public class PacienteController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Optional<Paciente>> get(@PathVariable long id){
+    public ResponseEntity<Optional<Paciente>> get(@PathVariable int id){
         return ResponseEntity.ok().body(pacienteService.get(id));
     }
 
@@ -40,7 +40,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) throws ResourceNotFoundException {
+    public ResponseEntity<String> delete(@PathVariable int id) throws ResourceNotFoundException {
         pacienteService.delete(id);
         return ResponseEntity.ok("se elimino el paciente correctamente");
     }

@@ -29,7 +29,7 @@ public class OdontologoController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Optional<Odontologo>> get(@PathVariable long id){
+    public ResponseEntity<Optional<Odontologo>> get(@PathVariable int id){
         return ResponseEntity.ok().body(odontologoService.get(id));
     }
 
@@ -39,7 +39,7 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) throws ResourceNotFoundException {
+    public ResponseEntity<String> delete(@PathVariable int id) throws ResourceNotFoundException {
         odontologoService.delete(id);
         return ResponseEntity.ok("Se elimino el odontologo correctamente");
     }

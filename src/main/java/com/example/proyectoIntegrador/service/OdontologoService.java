@@ -22,7 +22,7 @@ public class OdontologoService {
         return odontologoRepository.findAll();
     }
 
-    public Optional<Odontologo> get(long id){
+    public Optional<Odontologo> get(Integer id){
         return odontologoRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class OdontologoService {
         return odontologoRepository.save(odontologo);
     }
 
-    public void delete(long id) throws ResourceNotFoundException {
+    public void delete(int id) throws ResourceNotFoundException {
         Optional<Odontologo> traerOdontologo = get(id);
         if (traerOdontologo.isPresent())
             odontologoRepository.deleteById(id);

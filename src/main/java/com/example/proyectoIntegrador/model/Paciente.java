@@ -18,13 +18,12 @@ import java.util.Set;
 @Setter
 public class Paciente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
     private String nombre;
     private String apellido;
     private String domicilio;
-    private String DNI;
+    private int DNI;
     private LocalDate fechaALta;
 
     @OneToMany(mappedBy = "paciente")

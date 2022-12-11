@@ -25,7 +25,7 @@ public class PacienteService {
         return pacienteRepository.findAll();
     }
 
-    public Optional<Paciente> get(long id){
+    public Optional<Paciente> get(int id){
         return pacienteRepository.findById(id);
     }
 
@@ -33,7 +33,7 @@ public class PacienteService {
         return pacienteRepository.save(paciente);
     }
 
-    public void delete(long id) throws ResourceNotFoundException {
+    public void delete(int id) throws ResourceNotFoundException {
         Optional<Paciente> traerPaciente = get(id);
         if (traerPaciente.isPresent())
             pacienteRepository.deleteById(id);
